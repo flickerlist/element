@@ -37,3 +37,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+@function mix($args...) {
+  @return _mix($args);
+}

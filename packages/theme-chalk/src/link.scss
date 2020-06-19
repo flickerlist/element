@@ -1,11 +1,12 @@
 @import "mixins/mixins";
 @import "common/var";
+@import "mixins/utils";
 
 $typeMap: (
-  primary: $--link-primary-font-color, 
-  danger: $--link-danger-font-color, 
-  success: $--link-success-font-color, 
-  warning: $--link-warning-font-color, 
+  primary: $--link-primary-font-color,
+  danger: $--link-danger-font-color,
+  success: $--link-success-font-color,
+  warning: $--link-warning-font-color,
   info: $--link-info-font-color);
 
 @include b(link) {
@@ -36,15 +37,15 @@ $typeMap: (
 
   @include when(disabled) {
     cursor: not-allowed;
-  } 
+  }
 
   & [class*="el-icon-"] {
     & + span {
       margin-left: 5px;
     }
   }
-    
-    
+
+
   &.el-link--default  {
     color: $--link-default-font-color;
     &:hover {
@@ -77,5 +78,5 @@ $typeMap: (
       }
     }
   }
-    
+
 }

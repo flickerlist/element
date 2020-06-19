@@ -13,6 +13,9 @@ const config = require('./config');
 const isProd = process.env.NODE_ENV === 'production';
 const isPlay = !!process.env.PLAY_ENV;
 
+const cssBaseVars = {};
+const cssVars = {};
+
 const webpackConfig = {
   mode: process.env.NODE_ENV,
   entry: isProd ? {
@@ -69,6 +72,14 @@ const webpackConfig = {
         use: [
           isProd ? MiniCssExtractPlugin.loader : 'style-loader',
           'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: [
+                require(path.resolve(__dirname, './postcss-plugin-mix'))({ baseVars: cssBaseVars, vars: cssVars, dest: path.resolve(__dirname, '../src/utils/color.json') })
+              ]
+            }
+          },
           'sass-loader'
         ]
       },

@@ -189,16 +189,21 @@ const install = function(Vue, opts = {}) {
   Vue.prototype.$prompt = MessageBox.prompt;
   Vue.prototype.$notify = Notification;
   Vue.prototype.$message = Message;
-
 };
 
 /* istanbul ignore if */
+import { refreshColors } from './utils/color.js';
+if (typeof window !== 'undefined') {
+  setTimeout(refreshColors, 1000);
+}
+
 if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue);
 }
 
 export default {
-  version: '2.13.0',
+  refreshColors,
+  version: '2.13.1',
   locale: locale.use,
   i18n: locale.i18n,
   install,

@@ -1,4 +1,5 @@
 @import "mixins/mixins";
+@import "mixins/utils";
 @import "common/var";
 @import "button";
 @import "./popper";
@@ -32,7 +33,7 @@
       top: $gap;
       bottom: $gap;
       left: 0;
-      background: mix(white, transparent, 50%);
+      background: rgba(255, 255, 255, .5);
     }
 
     &.el-button--default::before {
